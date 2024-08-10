@@ -7,3 +7,34 @@
 * {
   font-family: "Roboto", sans-serif;
 }
+
+td, th {
+  border-bottom: 1px solid #e0e8e2;
+  border-right: 1px solid #e0e8e2;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  color: #2a3f3f
+}
+
+td {
+  color: rgb(22, 101, 52)
+}
+
+.modal-content {
+  z-index: 1000;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 600px;
+  min-width: 300px;
+}
+
+@media (min-width: 768px) {
+  .modal-content {
+    width: 500px
+  }
+}
