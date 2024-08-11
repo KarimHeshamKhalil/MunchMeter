@@ -8,16 +8,19 @@ import CircularProgressBar from './components/CircularProgressBar';
 
 export default function page() {
   const caloriesLimit = 3000
-  const [ foodLog, setFoodLog ] = useState([])
+  const [ foodLog, setFoodLog ] = useState(JSON.parse(localStorage.getItem('foodLog')))
 
-  useEffect(() => {
-    const newLog = localStorage.getItem('foodLog')
-    
-    if (newLog) {
-      setFoodLog(JSON.parse(newLog))
+  const handleDelete = (index) => {
+    let newLog = []
+    for (let i = 0; i < foodLog.length; i++) {
+      if (index !== i) {
+        newLog.push(foodLog[i])
+      }
     }
 
-  }, [])
+    localStorage.setItem('foodLog', JSON.stringify(newLog))
+    setFoodLog(newLog)
+  }
 
   const handleAddNewLog = (newLogItem) => {
     const newLog = [...foodLog, newLogItem];
@@ -93,7 +96,7 @@ export default function page() {
                       <td>{item.grams / 100 * item.caloriesPerHundredGrams}cal</td>
                       <td className='flex items-center'>
                         <button className='px-2 py-1 bg-stone-600 text-white text-xl rounded-lg'><BsThreeDots /></button>
-                        <button className='px-2 py-1 bg-red-700 text-white text-xl rounded-lg relative left-2'><IoCloseOutline /></button>
+                        <button onClick={() => handleDelete(index)} className='px-2 py-1 bg-red-700 text-white text-xl rounded-lg relative left-2'><IoCloseOutline /></button>
                       </td>
                     </tr>
                   )))
