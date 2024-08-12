@@ -20,7 +20,8 @@ module.exports = {
       },
       boxShadow: {
         'shadow1': '0 0 5px rgba(0, 0, 0, 0.2)',
-        'innerborder': '0, 0, 10px rgba(70, 119, 80) inset'
+        'innerborder': '0, 0, 10px rgba(70, 119, 80) inset',
+        'card': '0 10px 12px rgba(0, 0, 0, 0.2)'
       }
     }
   },

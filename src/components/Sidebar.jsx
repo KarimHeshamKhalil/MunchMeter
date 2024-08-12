@@ -5,9 +5,10 @@ import { GiAppleSeeds } from "react-icons/gi";
 import { IoIosWater } from "react-icons/io";
 
 import ConsumeForm from './ConsumeForm';
+import BurnForm from './BurnForm'
 import { IoCloseOutline } from 'react-icons/io5';
 
-export default function Sidebar({ setFoodLog }) {
+export default function Sidebar({ setFoodLog, setActivityLog }) {
   const [isShown, setIsShown] = useState(false)
   const [isConsume, setIsConsume] = useState(false)
   const [isBurnCalories, setIsBurnCalories] = useState(false)
@@ -22,6 +23,8 @@ export default function Sidebar({ setFoodLog }) {
     
     if (option === 'consume') {
       setIsConsume(true)
+    } else if (option === 'burnCalories') {
+      setIsBurnCalories(true)
     }
   }
 
@@ -85,6 +88,11 @@ export default function Sidebar({ setFoodLog }) {
       {
         isShown && isConsume && (
           <ConsumeForm setFoodLog={setFoodLog} toggleModal={toggleModal} />
+        )
+      }
+      {
+        isShown && isBurnCalories && (
+          <BurnForm setActivityLog={setActivityLog} toggleModal={toggleModal} />
         )
       }
     </>

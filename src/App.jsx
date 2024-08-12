@@ -8,24 +8,35 @@ import CircularProgressBar from './components/CircularProgressBar';
 
 export default function page() {
   const caloriesLimit = 3000
-  const [ foodLog, setFoodLog ] = useState(JSON.parse(localStorage.getItem('foodLog')))
+  const [ foodLog, setFoodLog ] = useState(JSON.parse(localStorage.getItem('foodLog')) || [])
+  const [ activityLog, setActivityLog ] = useState(JSON.parse(localStorage.getItem('activityLog')) || [])
 
-  const handleDelete = (index) => {
+  const handleDelete = (log, storageKey,index) => {
     let newLog = []
-    for (let i = 0; i < foodLog.length; i++) {
+    for (let i = 0; i < log.length; i++) {
       if (index !== i) {
-        newLog.push(foodLog[i])
+        newLog.push(log[i])
       }
     }
 
-    localStorage.setItem('foodLog', JSON.stringify(newLog))
-    setFoodLog(newLog)
+    localStorage.setItem(storageKey, JSON.stringify(newLog))
+    if (storageKey === 'foodLog') {
+      setFoodLog(newLog)
+    } else if (storageKey === 'activityLog') {
+      setActivityLog(newLog)
+    }
   }
 
-  const handleAddNewLog = (newLogItem) => {
+  const handleAddNewFoodLog = (newLogItem) => {
     const newLog = [...foodLog, newLogItem];
     setFoodLog(newLog);
     localStorage.setItem('foodLog', JSON.stringify(newLog))
+  }
+
+  const handleAddNewActivyLog = (newLogItem) => {
+    const newLog = [...activityLog, newLogItem];
+    setActivityLog(newLog);
+    localStorage.setItem('activityLog', JSON.stringify(newLog))
   }
 
   const countCalories = () => {
@@ -35,14 +46,24 @@ export default function page() {
       caloriesConsumed += foodLog[i].grams / 100 * foodLog[i].caloriesPerHundredGrams
     }
 
+    for (let i = 0; i < activityLog.length; i++) {
+      caloriesConsumed -= activityLog[i].burnedCalories
+    }
+
     console.log(caloriesConsumed);
 
     return caloriesConsumed
   }
 
+  // localStorage.clear()
+
+  useEffect(() => {
+    console.log(activityLog, "HERE");
+  }, [activityLog])
+
   return (
     <div className='pl-[160px] z-10'>
-      <Sidebar setFoodLog={handleAddNewLog} />
+      <Sidebar setFoodLog={handleAddNewFoodLog} setActivityLog={handleAddNewActivyLog} />
 
       <main className='flex flex-col max-w-4xl mx-auto mt-10'>
         <div className='bg-slate-50 shadow-md px-6 py-4 rounded-2xl flex items-center gap-8'>
@@ -81,8 +102,8 @@ export default function page() {
                   <th>Name</th>
                   <th>Grams</th>
                   <th>Calories/100Grams</th>
-                  <th>total</th>
-                  <th>Remove</th>
+                  <th>Total</th>
+                  <th>More</th>
                 </tr>
               </thead>
               <tbody>
@@ -96,7 +117,44 @@ export default function page() {
                       <td>{item.grams / 100 * item.caloriesPerHundredGrams}cal</td>
                       <td className='flex items-center'>
                         <button className='px-2 py-1 bg-stone-600 text-white text-xl rounded-lg'><BsThreeDots /></button>
-                        <button onClick={() => handleDelete(index)} className='px-2 py-1 bg-red-700 text-white text-xl rounded-lg relative left-2'><IoCloseOutline /></button>
+                        <button onClick={() => handleDelete(foodLog, 'foodLog',index)} className='px-2 py-1 bg-red-700 text-white text-xl rounded-lg relative left-2'><IoCloseOutline /></button>
+                      </td>
+                    </tr>
+                  )))
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div className='table mt-8'>
+          <h3 className='text-xl px-2 mb-2 text-green1 flex items-center gap-2'>
+            <span>Activity Log</span>
+            <FaBookOpen />
+          </h3>
+
+          <div className='bg-slate-50 px-4 py-2 rounded-md bg-green overflow-y-auto max-h-[320px]'>
+            <table className='w-full '>
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Activity</th>
+                  <th>Time</th>
+                  <th>Burned Calories</th>
+                  <th>More</th>
+                </tr>
+              </thead>
+              <tbody>
+                { activityLog && (
+                  activityLog.map((item, index) => (
+                    <tr key={index}>
+                      <td>{index}</td>
+                      <td>{item.activity}</td>
+                      <td>.</td>
+                      <td>{item.burnedCalories}cal</td>
+                      <td className='flex items-center'>
+                        <button className='px-2 py-1 bg-stone-600 text-white text-xl rounded-lg'><BsThreeDots /></button>
+                        <button onClick={() => handleDelete(activityLog, 'activityLog',index)} className='px-2 py-1 bg-red-700 text-white text-xl rounded-lg relative left-2'><IoCloseOutline /></button>
                       </td>
                     </tr>
                   )))

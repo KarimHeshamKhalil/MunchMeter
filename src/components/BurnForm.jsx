@@ -3,12 +3,11 @@ import { IoCloseOutline } from "react-icons/io5";
 import { useForm } from 'react-hook-form';
 import { FaCircleExclamation } from "react-icons/fa6";
 
-export default function ConsumeForm({ setIsShown, setFoodLog, toggleModal }) {
+export default function BurnForm({ setIsShown, setActivityLog, toggleModal }) {
   const { register, handleSubmit, watch, reset,formState: {errors} } = useForm()
 
   const submit = (data) => {
-    console.log(data);
-    setFoodLog(data)
+    setActivityLog(data)
     reset()
     toggleModal()
   }
@@ -24,55 +23,55 @@ export default function ConsumeForm({ setIsShown, setFoodLog, toggleModal }) {
 
         <form onSubmit={handleSubmit(submit)}>
           <div className='text-green2 flex flex-col text-lg'>
-            <label htmlFor="name">Name:</label>
-            <input {...register("name", { maxLength: {value: 30, message: "Name limit is 30 characters"} })} type="text" placeholder='ex:apple' className='text-green1 text-lg px-2 placeholder:text-green3 outline-green3 bg-stone-50 rounded-sm' />
-            {errors.name && (
+            <label htmlFor="activity">Activity:</label>
+            <input {...register("activity", { maxLength: {value: 30, message: "Name limit is 30 characters"} })} type="text" placeholder='ex:walking' className='text-green1 text-lg px-2 placeholder:text-green3 outline-green3 bg-stone-50 rounded-sm' />
+            {errors.activity && (
               <div className='text-red-800 flex items-center gap-2 bg-red-100 py-1 px-4 mt-1 rounded-md'>
                 <FaCircleExclamation />
                 <span className='text-base'>
-                  {errors.name.message}
+                  {errors.activity.message}
                 </span>
               </div>
             )}
           </div>
 
           <div className='text-green2 flex flex-col text-lg my-2'>
-            <label htmlFor="grams">Grams:</label>
-            <input {...register("grams", { 
-              required: "Grams input is required",
-              min: {value: 1, message: "Value must be at least 1"},
-              max: {value: 2000, message: "Value must be no more than 2000"},
+            <label htmlFor="time">Time in Minutes:</label>
+            <input {...register("time", { 
+              required: "Time input is required",
+              min: {value: 1, message: "Value must be at least -2000"},
+              max: {value: 180, message: "Value must be no more than 2000"},
               pattern: {
                 value: /^\d+$/,
                 message: "Please enter a valid number"
               }
-            })} type="text" placeholder='ex:100g' className='text-green1 text-lg px-2 placeholder:text-green3 outline-green3 bg-stone-50 rounded-sm' />
-            {errors.grams && (
+            })} type="text" placeholder='ex:60mins' className='text-green1 text-lg px-2 placeholder:text-green3 outline-green3 bg-stone-50 rounded-sm' />
+            {errors.time && (
               <div className='text-red-800 flex items-center gap-2 bg-red-100 py-1 px-4 mt-1 rounded-md'>
                 <FaCircleExclamation />
                 <span>
-                  {errors.grams.message}
+                  {errors.time.message}
                 </span>
               </div>
             )}
           </div>
 
-          <div className='text-green2 flex flex-col text-lg'>
-            <label htmlFor="caloriesperhundredgrams">CaloriesPerHundredGrams:</label>
-            <input {...register("caloriesPerHundredGrams", { 
-              required: "caloriesPerHundredGrams input is required",
-              min: {value: 1, message: "Value must be at least 1"},
+          <div className='text-green2 flex flex-col text-lg my-2'>
+            <label htmlFor="burnedCalories">Burned Calories:</label>
+            <input {...register("burnedCalories", { 
+              required: "burnedCalories input is required",
+              min: {value: -2000, message: "Value must be at least -2000"},
               max: {value: 2000, message: "Value must be no more than 2000"},
               pattern: {
                 value: /^\d+$/,
                 message: "Please enter a valid number"
               }
-            })} type="text" placeholder='ex:100cal/100gram' className='text-green1 text-lg px-2 placeholder:text-green3 outline-green3 bg-stone-50 rounded-sm' />
-            {errors.caloriesPerHundredGrams && (
+            })} type="text" placeholder='ex:100cal' className='text-green1 text-lg px-2 placeholder:text-green3 outline-green3 bg-stone-50 rounded-sm' />
+            {errors.burnedCalories && (
               <div className='text-red-800 flex items-center gap-2 bg-red-100 py-1 px-4 mt-1 rounded-md'>
                 <FaCircleExclamation />
                 <span>
-                  {errors.caloriesPerHundredGrams.message}
+                  {errors.burnedCalories.message}
                 </span>
               </div>
             )}
