@@ -101,7 +101,6 @@ export default function page() {
                   <th>Id</th>
                   <th>Name</th>
                   <th>Grams</th>
-                  <th>Calories/100Grams</th>
                   <th>Total</th>
                   <th>More</th>
                 </tr>
@@ -111,10 +110,9 @@ export default function page() {
                   foodLog.map((item, index) => (
                     <tr key={index}>
                       <td>{index}</td>
-                      <td>{item.name}</td>
-                      <td>{item.grams}g</td>
-                      <td>{item.caloriesPerHundredGrams}cal</td>
-                      <td>{item.grams / 100 * item.caloriesPerHundredGrams}cal</td>
+                      <td>{item.strMeal}</td>
+                      <td>{item.totalWeight}g</td>
+                      <td>{item.calories}cal</td>
                       <td className='flex items-center'>
                         <button className='px-2 py-1 bg-stone-600 text-white text-xl rounded-lg'><BsThreeDots /></button>
                         <button onClick={() => handleDelete(foodLog, 'foodLog',index)} className='px-2 py-1 bg-red-700 text-white text-xl rounded-lg relative left-2'><IoCloseOutline /></button>
@@ -150,7 +148,7 @@ export default function page() {
                     <tr key={index}>
                       <td>{index}</td>
                       <td>{item.activity}</td>
-                      <td>.</td>
+                      <td>{item.time}mins</td>
                       <td>{item.burnedCalories}cal</td>
                       <td className='flex items-center'>
                         <button className='px-2 py-1 bg-stone-600 text-white text-xl rounded-lg'><BsThreeDots /></button>

@@ -15,7 +15,7 @@ export default function BurnForm({ setIsShown, setActivityLog, toggleModal }) {
   return (
     <div className='fixed inset-0 w-[1000vh] height-[100vh] z-50'>
       <div onClick={toggleModal} className='fixed inset-0 w-[1000vh] height-[100vh] bg-modal z-100'></div>
-      <div className='modal-content shadow-innerborder overflow-clip border border-green2 bg-slate-100 rounded-lg px-6  py-6'>
+      <div className='modal-content md:w-[500px] shadow-innerborder overflow-clip border border-green2 bg-slate-100 rounded-lg px-6  py-6'>
         <button onClick={toggleModal} className='absolute -top-1 -right-1 px-2 pr-3 py-2 pt-3 bg-green2 borer border-green2 text-white rounded-md hover:text-green2 hover:bg-slate-50 transition-all duration-100 shadow-shadow1'>
           <IoCloseOutline />
         </button>
@@ -60,7 +60,7 @@ export default function BurnForm({ setIsShown, setActivityLog, toggleModal }) {
             <label htmlFor="burnedCalories">Burned Calories:</label>
             <input {...register("burnedCalories", { 
               required: "burnedCalories input is required",
-              min: {value: -2000, message: "Value must be at least -2000"},
+              min: {value: 1, message: "Value must be at least -2000"},
               max: {value: 2000, message: "Value must be no more than 2000"},
               pattern: {
                 value: /^\d+$/,

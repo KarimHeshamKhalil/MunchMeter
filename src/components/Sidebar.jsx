@@ -3,7 +3,7 @@ import { GoPlus } from "react-icons/go";
 import { FaFire, FaCircleExclamation } from "react-icons/fa6";
 import { GiAppleSeeds } from "react-icons/gi";
 import { IoIosWater } from "react-icons/io";
-
+import { FaBookBookmark } from "react-icons/fa6";
 import ConsumeForm from './ConsumeForm';
 import BurnForm from './BurnForm'
 import { IoCloseOutline } from 'react-icons/io5';
@@ -32,9 +32,16 @@ export default function Sidebar({ setFoodLog, setActivityLog }) {
     <>
       <div className='absolute left-0 top-0 bottom-0 w-48 bg-green1'>
         <div className='px-5 pt-4 mb-6'>
-          <button onClick={() => setIsShown(true)} className='text-black bg-white w-full py-2 text-lg flex items-center justify-center gap-1 rounded-md'>
-            <span className='text-2xl'><GoPlus /></span> New
-          </button>
+          {(setFoodLog && setActivityLog) ? (
+            <button onClick={() => setIsShown(true)} className='text-black bg-white w-full py-2 text-lg flex items-center justify-center gap-1 rounded-md'>
+              <span className='text-2xl'><GoPlus /></span> New
+            </button>
+          ): (
+            <a href='/' className='text-white1 bg-green2 w-full py-2 text-lg flex items-center justify-center gap-1 rounded-md'>
+              MunchMeter
+            </a>
+          )}
+          
         </div>
 
         <ul className='text-white'>
@@ -53,9 +60,9 @@ export default function Sidebar({ setFoodLog, setActivityLog }) {
             </a>
           </li>
           <li>
-            <a href={'/home/hydration'}>
+            <a href={'/home/recipes'}>
               <button className='group w-full relative px-5 py-2 border-y border-green2 hover:bg-green2 text-green-100 overflow-hidden text-left transition-all duration-300 ease-in-out'>
-                <span className='transform translate-x-0 group-hover:translate-x-[10%] transition-all duration-300 ease-in-out flex items-center gap-2'>Hydration <IoIosWater /></span>
+                <span className='transform translate-x-0 group-hover:translate-x-[10%] transition-all duration-300 ease-in-out flex items-center gap-2'>Recipes <FaBookBookmark /></span>
               </button>
             </a>
           </li>

@@ -5,6 +5,7 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './components/ErrorPage.jsx';
 import Root from './root.jsx';
+import RecipesPage from './components/RecipesPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/home/calories",
     element: <App />,
+  },
+  {
+    path: "/home/recipes",
+    element: <RecipesPage />,
   },
 ]);
 
