@@ -43,23 +43,17 @@ export default function page() {
     let caloriesConsumed = 0
     
     for (let i = 0; i < foodLog.length; i++) {
-      caloriesConsumed += foodLog[i].grams / 100 * foodLog[i].caloriesPerHundredGrams
+      caloriesConsumed += foodLog[i].calories
     }
 
     for (let i = 0; i < activityLog.length; i++) {
       caloriesConsumed -= activityLog[i].burnedCalories
     }
 
-    console.log(caloriesConsumed);
-
     return caloriesConsumed
   }
 
   // localStorage.clear()
-
-  useEffect(() => {
-    console.log(activityLog, "HERE");
-  }, [activityLog])
 
   return (
     <div className='pl-[160px] z-10'>

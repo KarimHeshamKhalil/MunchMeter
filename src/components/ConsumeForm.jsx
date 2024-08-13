@@ -16,7 +16,6 @@ export default function ConsumeForm({ setIsShown, setFoodLog, toggleModal }) {
   const { register, handleSubmit, watch, reset,formState: {errors} } = useForm()
 
   const submit = (data) => {
-    console.log(data);
     setFoodLog(data)
     reset()
     toggleModal()
@@ -38,7 +37,6 @@ export default function ConsumeForm({ setIsShown, setFoodLog, toggleModal }) {
 
   useEffect(() => {
     if (selectedRecipe) {
-      console.log('here')
       async function getData() {
         if (selectedRecipe) {
           const newNutrition = await fetchNutritionData(getIngredients())

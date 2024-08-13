@@ -17,10 +17,8 @@ export default function Recipes({ isPage, setRecipe }) {
     try {
     const data = await fetchByUrl(`https://www.themealdb.com/api/json/v1/1/search.php?s=${recipeName}`)
     setRecipes(data.data)
-    console.log(data.data);
     
     } catch (error) {
-      console.log(data.error);
       setError(error)
     }
     
@@ -35,8 +33,6 @@ export default function Recipes({ isPage, setRecipe }) {
   }
 
   const handleRecipe = (item) => {
-    console.log(item);
-    
     if (isPage) {
       setSelectedRecipe(item)
       setIsRecipeShow(true)
