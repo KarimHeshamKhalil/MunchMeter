@@ -19,7 +19,7 @@ export default function BurnForm({ setIsShown, setActivityLog, toggleModal }) {
         <button onClick={toggleModal} className='absolute -top-1 -right-1 px-2 pr-3 py-2 pt-3 bg-green2 borer border-green2 text-white rounded-md hover:text-green2 hover:bg-slate-50 transition-all duration-100 shadow-shadow1'>
           <IoCloseOutline />
         </button>
-        <h3 className='text-2xl text-green2 mb-4'>Add Food</h3>
+        <h3 className='text-2xl text-green2 mb-4'>Add Activity</h3>
 
         <form onSubmit={handleSubmit(submit)}>
           <div className='text-green2 flex flex-col text-lg'>

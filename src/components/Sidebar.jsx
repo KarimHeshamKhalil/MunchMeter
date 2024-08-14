@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { GoPlus } from "react-icons/go";
 import { FaFire, FaCircleExclamation } from "react-icons/fa6";
 import { GiAppleSeeds } from "react-icons/gi";
-import { IoIosWater } from "react-icons/io";
+import { IoIosWater, IoMdHome } from "react-icons/io";
 import { FaBookBookmark } from "react-icons/fa6";
 import ConsumeForm from './ConsumeForm';
 import BurnForm from './BurnForm'
@@ -30,7 +30,7 @@ export default function Sidebar({ setFoodLog, setActivityLog }) {
 
   return (
     <>
-      <div className='absolute left-0 top-0 bottom-0 w-48 bg-green1'>
+      <div className='absolute left-0 top-0 bottom-0 w-48 bg-green1 hidden checkPoint1:block'>
         <div className='px-5 pt-4 mb-6'>
           {(setFoodLog && setActivityLog) ? (
             <button onClick={() => setIsShown(true)} className='text-black bg-white w-full py-2 text-lg flex items-center justify-center gap-1 rounded-md'>
@@ -41,7 +41,6 @@ export default function Sidebar({ setFoodLog, setActivityLog }) {
               MunchMeter
             </a>
           )}
-          
         </div>
 
         <ul className='text-white'>
@@ -64,6 +63,52 @@ export default function Sidebar({ setFoodLog, setActivityLog }) {
               <button className='group w-full relative px-5 py-2 border-y border-green2 hover:bg-green2 text-green-100 overflow-hidden text-left transition-all duration-300 ease-in-out'>
                 <span className='transform translate-x-0 group-hover:translate-x-[10%] transition-all duration-300 ease-in-out flex items-center gap-2'>Recipes <FaBookBookmark /></span>
               </button>
+            </a>
+          </li>
+        </ul>
+          
+      </div>
+
+      <div className='absolute left-0 top-0 bottom-0 w-20 bg-green1 block checkPoint1:hidden'>
+        <div className='px-4 pt-4 mb-6'>
+          {(setFoodLog && setActivityLog) ? (
+            <button onClick={() => setIsShown(true)} className='text-green2 bg-slate-100 w-full py-2 text-lg flex items-center justify-center gap-1 rounded-md'>
+              <span className='text-2xl'><GoPlus /></span>
+            </button>
+          ): (
+            <a href='/' className='text-green2 bg-slate-100 w-full py-2 text-2xl flex items-center justify-center gap-1 rounded-md'>
+              <IoMdHome />
+            </a>
+          )}
+          
+        </div>
+
+        <ul className='text-white'>
+          <li>
+            <a href={'/home/calories'}>
+              <div className='px-4 pt-4 mb-6'>
+                <button className='text-green2 bg-slate-100 w-full py-2 text-lg flex items-center justify-center gap-1 rounded-md'>
+                  <span className='text-2xl'><FaFire /></span>
+                </button>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href={'/home/micronutrients'}>
+              <div className='px-4 pt-4 mb-6'>
+                <button className='text-green2 bg-slate-100 w-full py-2 text-lg flex items-center justify-center gap-1 rounded-md'>
+                  <span className='text-2xl'><GiAppleSeeds /></span>
+                </button>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href={'/home/recipes'}>
+              <div className='px-4 pt-4 mb-6'>
+                <button className='text-green2 bg-slate-100 w-full py-2 text-lg flex items-center justify-center gap-1 rounded-md'>
+                  <span className='text-2xl'><FaBookBookmark /></span>
+                </button>
+              </div>
             </a>
           </li>
         </ul>

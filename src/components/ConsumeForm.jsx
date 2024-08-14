@@ -6,7 +6,7 @@ import { fetchNutritionData } from '../functionality/fetchByUrl';
 import Recipes from './Recipes';
 import Notification from './Notification';
 
-export default function ConsumeForm({ setIsShown, setFoodLog, toggleModal }) {
+export default function ConsumeForm({ setFoodLog, toggleModal }) {
   const [isCustom, setIsCustom] = useState(false)
   const [selectedRecipe, setSelectedRecipe] = useState(null)
   const [nutrition, setNutrition] = useState(null)
@@ -16,6 +16,8 @@ export default function ConsumeForm({ setIsShown, setFoodLog, toggleModal }) {
   const { register, handleSubmit, watch, reset,formState: {errors} } = useForm()
 
   const submit = (data) => {
+    data.calories = Number(data.calories)
+    data.isCustom = true
     setFoodLog(data)
     reset()
     toggleModal()
@@ -57,6 +59,8 @@ export default function ConsumeForm({ setIsShown, setFoodLog, toggleModal }) {
   const handleFoodNutrition = () => {
     const newObj = {...nutrition, ...selectedRecipe}
     setFoodLog(newObj)
+    toggleModal()
+    showNutrition(false)
   }
   
 
@@ -66,7 +70,7 @@ export default function ConsumeForm({ setIsShown, setFoodLog, toggleModal }) {
         <Notification message={error} callback={() => setError('')} />
       )}
       <div onClick={toggleModal} className='fixed inset-0 w-[1000vh] height-[100vh] bg-modal z-100'></div>
-      <div className='modal-content md:w-[500px] shadow-innerborder overflow-clip border border-green2 bg-slate-100 rounded-lg px-6 py-6'>
+      <div className='modal-content md:w-[500px] shadow-innerborder overflow-clip bg-slate-100 rounded-lg px-6 py-6'>
         <button onClick={toggleModal} className='absolute -top-1 -right-1 px-2 pr-3 py-2 pt-3 bg-green2 borer border-green2 text-white rounded-md hover:text-green2 hover:bg-slate-50 transition-all duration-100 shadow-shadow1'>
           <IoCloseOutline />
         </button>
@@ -135,7 +139,7 @@ export default function ConsumeForm({ setIsShown, setFoodLog, toggleModal }) {
 
               <div className='w-full flex items-center justify-center mt-4'>
                 <button className='text-slate-50 bg-green2 px-8 py-1 text-lg rounded-md hover:text-green2 hover:bg-slate-50 transition-all duration-100 shadow-shadow1'>
-                  Add
+                  Add.....
                 </button>
               </div>
             </form>
@@ -163,13 +167,6 @@ export default function ConsumeForm({ setIsShown, setFoodLog, toggleModal }) {
                   <p>
                     Calories: <span className='text-green2'>{nutrition.calories}</span>
                   </p>
-                  {/* <div className='flex items-center max-w-[200px] gap-2'>
-                    Health Labels: {
-                      nutrition.healthLabels.map((label, index) => (
-                        <p className='text-sm' key={index}>{label}</p>
-                      ))
-                    }
-                  </div> */}
                   <p>
                     Total CO2 Emissions <span className='text-green2'>{Math.round(nutrition.totalCO2Emissions)}</span>
                   </p>

@@ -72,7 +72,7 @@ export default function Recipes({ isPage, setRecipe }) {
 
         <div className='bg-slate-50 w-full px-4 py-4 mt-4 overflow-y-auto max-h-[500px]'>
           {recipes && recipes.meals.map((item, i) => (
-            <button onClick={() => handleRecipe(item)} className='px-2 py-1 hover:bg-white1 w-full text-left text-lg flex items-center gap-2 border-b'>
+            <button key={i} onClick={() => handleRecipe(item)} className='px-2 py-1 hover:bg-white1 w-full text-left text-lg flex items-center gap-2 border-b'>
               <span className='text-base text-green2'>{String(i+1)}-</span> <span className='text-green1'>{item.strMeal}</span>
             </button>
           ))}
@@ -101,7 +101,7 @@ export default function Recipes({ isPage, setRecipe }) {
               <div className='px-4 text-green1'>
                 {
                   getIngredients().map((ingredient, index) => (
-                    <p className='flex items-center gap-2'>
+                    <p key={index} className='flex items-center gap-2'>
                       <span>{String(index+1)}-</span>
                       <span>{ingredient.ingredient}</span>
                       &#x2192;

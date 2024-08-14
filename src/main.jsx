@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './components/ErrorPage.jsx';
 import Root from './root.jsx';
 import RecipesPage from './components/RecipesPage.jsx';
+import Nutrients from './components/Nutrients.jsx';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/home/recipes",
     element: <RecipesPage />,
+  },
+  {
+    path: "/home/micronutrients",
+    element: <Nutrients />,
   },
 ]);
 

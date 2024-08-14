@@ -7,6 +7,9 @@ export default function RecipesPage() {
     <div className='pl-[192px]'>
       <Sidebar />
 
+      <h3 className='text-2xl text-green1 max-w-fit mx-auto mt-12 -mb-12'>
+        Search Any Recipe By Name
+      </h3>
       <Recipes isPage={true} />
     </div>
   )
