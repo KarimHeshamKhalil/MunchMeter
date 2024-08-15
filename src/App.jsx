@@ -56,7 +56,7 @@ export default function page() {
   // localStorage.clear()
 
   return (
-    <div className='pl-[160px] z-10'>
+    <div className='pl-[90px] pr-6 checkPoint1:pl-[160px] z-10'>
       <Sidebar setFoodLog={handleAddNewFoodLog} setActivityLog={handleAddNewActivyLog} />
 
       <main className='flex flex-col max-w-4xl mx-auto mt-10'>

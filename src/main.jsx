@@ -7,6 +7,7 @@ import ErrorPage from './components/ErrorPage.jsx';
 import Root from './root.jsx';
 import RecipesPage from './components/RecipesPage.jsx';
 import Nutrients from './components/Nutrients.jsx';
+import ContactUs from './components/ContactUs.jsx';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "/home/micronutrients",
     element: <Nutrients />,
+  },
+  {
+    path: "/home/contactus",
+    element: <ContactUs />,
   },
 ]);
 

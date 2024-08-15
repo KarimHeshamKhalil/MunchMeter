@@ -28,7 +28,7 @@ module.exports = {
         'checkPoint1': '1142px',
         'checkPoint2': '904px',
         'checkPoint3': '700px'
-      }
+      },
     }
   },
   plugins: [],
