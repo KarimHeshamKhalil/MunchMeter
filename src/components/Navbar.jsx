@@ -11,13 +11,8 @@ export default function Navbar() {
 
       <ul className='flex items-center gap-2'>
         <li>
-          <a href="/">
-            <button className=' bg-yellow-500 px-6 py-2 rounded-sm text-white hover:bg-white hover:text-yellow-500 hover:shadow-shadow1 transition-all duration-200'>Sign Up</button>
-          </a>
-        </li>
-        <li>
           <a href="/home/calories">
-            <button className=' bg-green2 px-6 py-2 rounded-sm text-white hover:bg-white hover:text-green2 hover:shadow-shadow1 transition-all duration-200'>Log In</button>
+            <button className=' bg-green2 px-6 py-2 rounded-sm text-white hover:bg-white hover:text-green2 hover:shadow-shadow1 transition-all duration-200'>App</button>
           </a>
         </li>
       </ul>

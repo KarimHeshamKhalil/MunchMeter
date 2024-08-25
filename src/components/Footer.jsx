@@ -5,7 +5,7 @@ import { AiFillTwitterCircle } from "react-icons/ai";
 
 export default function Footer() {
   return (
-    <div className='w-full h-[300px] bg-slate-100 px-12 py-6 text-green1 flex items-center justify-between'>
+    <div className='w-full h-[500px] md:h-[300px] bg-slate-100 px-12 py-6 text-green1 flex flex-col md:flex-row items-center justify-between'>
       <div>
         <h3 className='text-3xl rubik'>MunchMeter</h3>
 
@@ -26,7 +26,7 @@ export default function Footer() {
         </ul>
       </div>
 
-      <div className='-mb-[32px]'>
+      <div className='md:-mb-[32px]'>
         <span className='text-xl block mt-4 mb-1 font-medium rubik '>Authors</span>
         <ul className='text-xl px-4'>
           <li className='flex items-center gap-2'>
@@ -47,7 +47,7 @@ export default function Footer() {
       <div>
         <label className='block text-xl font-medium' htmlFor="newsletter">Subscribe to our Newsletter</label>
         <div className='relative h-[40px]'>
-          <input className='w-[500px] bg-white1 h-full px-4 py-1 text-lg rounded-full outline-none focus:shadow-md transition-all duration-100' type="text" placeholder='ex:john@example.com' />
+          <input className='w-[300px] md:w-[500px] bg-white1 h-full px-4 py-1 text-lg rounded-full outline-none focus:shadow-md transition-all duration-100' type="text" placeholder='ex:john@example.com' />
           <button className='bg-yellow-500 text-white px-4 py-2 rounded-full h-full absolute right-0'>
             Subscribe
           </button>
