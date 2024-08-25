@@ -4,7 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './components/ErrorPage.jsx';
-import Root from './root.jsx';
+import Root from './Root.jsx';
 import RecipesPage from './components/RecipesPage.jsx';
 import Nutrients from './components/Nutrients.jsx';
 import ContactUs from './components/ContactUs.jsx';
