@@ -83,7 +83,7 @@ export default function Recipes({ isPage, setRecipe }) {
       {isRecipeShown && (
         <div className='fixed inset-0 w-[1000vh] height-[100vh] z-50'>
           <div onClick={toggleModal} className='fixed inset-0 w-[1000vh] height-[100vh] bg-modal z-100'></div>
-          <div className='modal-content w-[80%] xs:w-[700px] shadow-innerborder overflow-hidden border border-green2 bg-slate-100 rounded-lg px-6 py-6 flex flex-col checkPoint2:flex-row-reverse justify-between items-center gap-3'>
+          <div className='modal-content w-[80%] xs:w-[700px] max-h-[500px] shadow-innerborder overflow-x-hidden overflow-y-auto border border-green2 bg-slate-100 rounded-lg px-6 py-6 flex flex-col checkPoint2:flex-row-reverse justify-between items-center gap-3'>
             <button onClick={toggleModal} className='absolute -top-1 -right-1 px-2 pr-3 py-2 pt-3 bg-green2 borer border-green2 text-white rounded-md hover:text-green2 hover:bg-slate-50 transition-all duration-100 shadow-shadow1'>
               <IoCloseOutline />
             </button>
