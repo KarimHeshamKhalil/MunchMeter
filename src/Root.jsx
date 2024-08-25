@@ -2,27 +2,20 @@ import React, { useState } from 'react'
 import Navbar from './components/Navbar'
 import CardsSection from './components/CardsSection'
 import chartoonPic1 from './assets/chartoonPic1.png'
+import basil from './assets/basil.webp'
 import { MdFeedback } from "react-icons/md";
 import { FaLightbulb } from "react-icons/fa";
 import Footer from './components/Footer';
 
 export default function Root() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  
-  const handleMouseMove = (e) => {
-    setMousePosition({
-      x: e.clientX,
-      y: e.clientY,
-    });
-  };
 
   return (
     <div>
       <Navbar />
 
-      <div className='flex items-center justify-center checkPoint1:justify-between flex-row-reverse px-16 h-[100vh] text-center checkPoint1:text-left text-green1 bg-slate-100 relative'>
-         <div className='opacity-60 relative -top-4 w-[300px] hidden checkPoint1:block'>
-          <img src="https://cdn.discordapp.com/attachments/1271872723739611174/1273032476268429414/basil.png?ex=66bd2362&is=66bbd1e2&hm=f36280b2eb7bf71c59a98142db4a8cc1961f03567b699e957a05c7d63c282044&" />
+      <div className='flex items-center justify-center checkPoint1:justify-between flex-col-reverse checkPoint1:flex-row-reverse px-16 h-[105vh] text-center checkPoint1:text-left text-green1 bg-slate-100 relative'>
+         <div className='opacity-60 relative top-20 checkPoint1:-top-4 w-[200px] md:w-[300px] block checkPoint1:block'>
+          <img src={basil} />
          </div>
 
          <div className='flex flex-col items-center checkPoint1:items-start'>
