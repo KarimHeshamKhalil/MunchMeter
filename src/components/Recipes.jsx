@@ -63,19 +63,24 @@ export default function Recipes({ isPage, setRecipe }) {
   }
   return (
     <div>
-      <div className='max-w-[1000px] mx-auto px-6 mt-16 relative'>
+      <div className='max-w-[1000px] mx-auto mt-16 relative'>
         <input className='bg-white1 w-full px-6 py-2 rounded-full text-green1 outline-none focus:shadow-shadow1 shadow-sm' type="text" placeholder='search recipe by name ex:burger' value={recipeName} onChange={(e) => setRecipeName(e.currentTarget.value)} />
 
-        <button onClick={handleSearch} className='px-3 py-2 bg-green2 rounded-full absolute right-8 top-1 text-white hover:shadow-shadow1 group'>
+        <button onClick={handleSearch} className='px-3 py-2 bg-green2 rounded-full absolute right-2 top-1 text-white hover:shadow-shadow1 group'>
           <IoIosArrowForward className='group-hover:rotate-90 transition-all duration-200' />
         </button>
 
         <div className='bg-slate-50 w-full px-4 py-4 mt-4 overflow-y-auto max-h-[500px]'>
-          {recipes && recipes.meals.map((item, i) => (
+          {recipes && recipes.meals && recipes.meals.map((item, i) => (
             <button key={i} onClick={() => handleRecipe(item)} className='px-2 py-1 hover:bg-white1 w-full text-left text-lg flex items-center gap-2 border-b'>
               <span className='text-base text-green2'>{String(i+1)}-</span> <span className='text-green1'>{item.strMeal}</span>
             </button>
           ))}
+          {
+            recipes && !recipes.meals && (
+              <p>Oops, Could Not Find Your Meal</p>
+            )
+          }
         </div>
       </div>
 

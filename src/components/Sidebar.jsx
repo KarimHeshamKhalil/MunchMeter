@@ -29,6 +29,12 @@ export default function Sidebar({ setFoodLog, setActivityLog }) {
     }
   }
 
+  const handleNewButtonOnPhone = () => {
+    setIsSidebarShown(prevVal => !prevVal)
+    setIsShown(prevVal => !prevVal)
+
+  }
+
   return (
     <>
       <div className='fixed left-0 top-0 bottom-0 w-48 bg-green1 hidden checkPoint1:block'>
@@ -147,7 +153,7 @@ export default function Sidebar({ setFoodLog, setActivityLog }) {
                   </button>
                 </div>
                 {(setFoodLog && setActivityLog) ? (
-                  <button onClick={() => setIsShown(true)} className='text-green2 bg-white hover:text-white hover:bg-green2 hover:shadow-md transition-all duration-100 w-full py-3 text-lg flex items-center justify-center gap-1 rounded-md'>
+                  <button onClick={handleNewButtonOnPhone} className='text-green2 bg-white hover:text-white hover:bg-green2 hover:shadow-md transition-all duration-100 w-full py-3 text-lg flex items-center justify-center gap-1 rounded-md'>
                     <span className='text-2xl'><GoPlus /></span> New
                   </button>
                 ): (
@@ -195,7 +201,7 @@ export default function Sidebar({ setFoodLog, setActivityLog }) {
 
       {
         isShown && !isBurnCalories && !isConsume && (
-          <div className='fixed inset-0 w-[1000vh] height-[100vh] z-50'>
+          <div className='fixed inset-0 w-[600px] height-[100vh] z-50'>
             <div onClick={toggleModal} className='fixed inset-0 w-[1000vh] height-[100vh] bg-modal z-100'></div>
             <div className='modal-content shadow-innerborder overflow-clip border border-green2 bg-slate-100 rounded-lg px-6  py-6'>
               <button onClick={toggleModal} className='absolute -top-1 -right-1 px-2 pr-3 py-2 pt-3 bg-green2 borer border-green2 text-white rounded-md hover:text-green2 hover:bg-slate-50 transition-all duration-100 shadow-shadow1'>

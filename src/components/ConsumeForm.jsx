@@ -139,7 +139,7 @@ export default function ConsumeForm({ setFoodLog, toggleModal }) {
 
               <div className='w-full flex items-center justify-center mt-4'>
                 <button className='text-slate-50 bg-green2 px-8 py-1 text-lg rounded-md hover:text-green2 hover:bg-slate-50 transition-all duration-100 shadow-shadow1'>
-                  Add.....
+                  Add
                 </button>
               </div>
             </form>

@@ -87,36 +87,7 @@ export default function page() {
             <span>Food Log</span>
             <FaBookOpen />
           </h3>
-
-          {/* <div className='bg-slate-50 px-4 py-2 rounded-md bg-green overflow-y-auto max-h-[320px] w-[600px]'>
-            <table className='w-full block overflow-x-auto whitespace-nowrap'>
-              <thead>
-                <tr>
-                  <th>Id</th>
-                  <th>Name</th>
-                  <th>Total Weight</th>
-                  <th>Total Calories</th>
-                  <th>More</th>
-                </tr>
-              </thead>
-              <tbody>
-                { foodLog && (
-                  foodLog.map((item, index) => (
-                    <tr key={index}>
-                      <td>{index}</td>
-                      <td>{item.strMeal}</td>
-                      <td>{Math.round(item.totalWeight)}g</td>
-                      <td>{item.calories}cal</td>
-                      <td className='flex items-center'>
-                        <button className='px-2 py-1 bg-stone-600 text-white text-xl rounded-lg'><BsThreeDots /></button>
-                        <button onClick={() => handleDelete(foodLog, 'foodLog', index)} className='px-2 py-1 bg-red-700 text-white text-xl rounded-lg relative left-2'><IoCloseOutline /></button>
-                      </td>
-                    </tr>
-                  )))
-                }
-              </tbody>
-            </table>
-          </div> */}
+          
           <div className='bg-slate-50 px-4 py-2 rounded-md overflow-y-auto max-h-[320px] sm:w-full'>
             <div className='overflow-x-auto'> {/* Wrap the table in another div */}
               <table className='sm:w-full'>
