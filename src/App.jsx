@@ -87,10 +87,9 @@ export default function page() {
             <span>Food Log</span>
             <FaBookOpen />
           </h3>
-          
-          <div className='bg-slate-50 px-4 py-2 rounded-md overflow-y-auto max-h-[320px] sm:w-full'>
+          <div className='bg-slate-50 px-4 py-2 rounded-md overflow-y-auto max-h-[320px] w-[600px] md:w-full'>
             <div className='overflow-x-auto'> {/* Wrap the table in another div */}
-              <table className='sm:w-full'>
+              <table className='md:min-w-full min-w-[600px] '>
                 <thead>
                   <tr>
                     <th>Id</th>
@@ -120,6 +119,7 @@ export default function page() {
             </div>
           </div>
 
+
         </div>
 
         <div className='table mt-8'>
@@ -128,34 +128,36 @@ export default function page() {
             <FaBookOpen />
           </h3>
 
-          <div className='bg-slate-50 px-4 py-2 rounded-md bg-green overflow-y-auto overflow-x-auto max-h-[320px]'>
-            <table className='md:w-full w-auto'>
-              <thead>
-                <tr>
-                  <th>Id</th>
-                  <th>Activity</th>
-                  <th>Time</th>
-                  <th>Burned Calories</th>
-                  <th>More</th>
-                </tr>
-              </thead>
-              <tbody>
-                { activityLog && (
-                  activityLog.map((item, index) => (
-                    <tr key={index}>
-                      <td>{index}</td>
-                      <td>{item.activity}</td>
-                      <td>{item.time}mins</td>
-                      <td>{item.burnedCalories}cal</td>
-                      <td className='flex items-center'>
-                        <button className='px-2 py-1 bg-stone-600 text-white text-xl rounded-lg'><BsThreeDots /></button>
-                        <button onClick={() => handleDelete(activityLog, 'activityLog',index)} className='px-2 py-1 bg-red-700 text-white text-xl rounded-lg relative left-2'><IoCloseOutline /></button>
-                      </td>
-                    </tr>
-                  )))
-                }
-              </tbody>
-            </table>
+          <div className='bg-slate-50 px-4 py-2 rounded-md overflow-y-auto max-h-[320px] w-[600px] md:w-full'>
+            <div className='overflow-x-auto'> {/* Wrap the table in another div */}
+              <table className='md:min-w-full min-w-[600px] '>
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Activity</th>
+                    <th>Time</th>
+                    <th>Burned Calories</th>
+                    <th>More</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  { activityLog && (
+                    activityLog.map((item, index) => (
+                      <tr key={index}>
+                        <td>{index}</td>
+                        <td>{item.activity}</td>
+                        <td>{item.time}mins</td>
+                        <td>{item.burnedCalories}cal</td>
+                        <td className='flex items-center'>
+                          <button className='px-2 py-1 bg-stone-600 text-white text-xl rounded-lg'><BsThreeDots /></button>
+                          <button onClick={() => handleDelete(activityLog, 'activityLog',index)} className='px-2 py-1 bg-red-700 text-white text-xl rounded-lg relative left-2'><IoCloseOutline /></button>
+                        </td>
+                      </tr>
+                    )))
+                  }
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </main>
