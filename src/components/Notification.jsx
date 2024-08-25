@@ -14,7 +14,7 @@ export default function Notification({ message, callback }) {
   return (
     <>
       {isShown && (
-        <div className={`fixed top-4 left-[35%] right-[35%] text-lg px-6 py-3 rounded-md text-white bg-green2 z-[1200]`}>
+        <div className={`fixed top-4 left-[25%] text-lg px-6 py-3 rounded-md text-white bg-green2 z-[1200]`}>
           {message}!
         </div>
         )
