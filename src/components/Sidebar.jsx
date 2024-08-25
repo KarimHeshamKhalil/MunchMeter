@@ -30,7 +30,7 @@ export default function Sidebar({ setFoodLog, setActivityLog }) {
 
   return (
     <>
-      <div className='absolute left-0 top-0 bottom-0 w-48 bg-green1 hidden checkPoint1:block'>
+      <div className='fixed left-0 top-0 bottom-0 w-48 bg-green1 hidden checkPoint1:block'>
         <div className='px-5 pt-4 mb-6'>
           {(setFoodLog && setActivityLog) ? (
             <button onClick={() => setIsShown(true)} className='text-green2 bg-white hover:text-white hover:bg-green2 hover:shadow-md transition-all duration-100 w-full py-2 text-lg flex items-center justify-center gap-1 rounded-md'>
@@ -76,7 +76,7 @@ export default function Sidebar({ setFoodLog, setActivityLog }) {
           
       </div>
 
-      <div className='absolute left-0 top-0 bottom-0 w-20 bg-green1 block checkPoint1:hidden'>
+      <div className='fixed left-0 top-0 bottom-0 h-[100vh] w-20 bg-green1 block checkPoint1:hidden'>
         <div className='px-4 pt-4 mb-6'>
           {(setFoodLog && setActivityLog) ? (
             <button onClick={() => setIsShown(true)} className='text-green2 bg-slate-100 hover:text-white hover:bg-green2 hover:shadow-md transition-all duration-100 w-full py-2 text-lg flex items-center justify-center gap-1 rounded-md'>
