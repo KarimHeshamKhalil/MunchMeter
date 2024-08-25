@@ -56,11 +56,11 @@ export default function page() {
   // localStorage.clear()
 
   return (
-    <div className='pl-[90px] pr-6 checkPoint1:pl-[160px] z-10'>
+    <div className='pl-6 sm:pl-[90px] pr-6 checkPoint1:pl-[160px] z-10'>
       <Sidebar setFoodLog={handleAddNewFoodLog} setActivityLog={handleAddNewActivyLog} />
 
       <main className='flex flex-col max-w-4xl mx-auto mt-10'>
-        <div className='bg-slate-50 shadow-md px-6 py-4 rounded-2xl flex items-center gap-8'>
+        <div className='bg-slate-50 shadow-md px-6 py-4 rounded-2xl flex items-center justify-center md:justify-start gap-8'>
           <div className='relative'>
             <CircularProgressBar size={200} progress={countCalories() / caloriesLimit * 100} />
 
@@ -70,7 +70,7 @@ export default function page() {
             </div>
           </div>
 
-          <div className='flex flex-col'>
+          <div className='flex-col hidden md:flex'>
             <p className='text-3xl flex items-center gap-4 text-green-900 font-semibold'>
               <span className='text-6xl text-green-900 italic'>{caloriesLimit - countCalories()}</span> <span>Calories left to consume!</span>
             </p>
@@ -88,8 +88,8 @@ export default function page() {
             <FaBookOpen />
           </h3>
 
-          <div className='bg-slate-50 px-4 py-2 rounded-md bg-green overflow-y-auto max-h-[320px]'>
-            <table className='w-full '>
+          {/* <div className='bg-slate-50 px-4 py-2 rounded-md bg-green overflow-y-auto max-h-[320px] w-[600px]'>
+            <table className='w-full block overflow-x-auto whitespace-nowrap'>
               <thead>
                 <tr>
                   <th>Id</th>
@@ -116,7 +116,39 @@ export default function page() {
                 }
               </tbody>
             </table>
+          </div> */}
+          <div className='bg-slate-50 px-4 py-2 rounded-md overflow-y-auto max-h-[320px] sm:w-full'>
+            <div className='overflow-x-auto'> {/* Wrap the table in another div */}
+              <table className='sm:w-full'>
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Total Weight</th>
+                    <th>Total Calories</th>
+                    <th>More</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {foodLog && (
+                    foodLog.map((item, index) => (
+                      <tr key={index}>
+                        <td>{index}</td>
+                        <td>{item.strMeal}</td>
+                        <td>{Math.round(item.totalWeight)}g</td>
+                        <td>{item.calories}cal</td>
+                        <td className='flex items-center'>
+                          <button className='px-2 py-1 bg-stone-600 text-white text-xl rounded-lg'><BsThreeDots /></button>
+                          <button onClick={() => handleDelete(foodLog, 'foodLog', index)} className='px-2 py-1 bg-red-700 text-white text-xl rounded-lg relative left-2'><IoCloseOutline /></button>
+                        </td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
+            </div>
           </div>
+
         </div>
 
         <div className='table mt-8'>
@@ -125,8 +157,8 @@ export default function page() {
             <FaBookOpen />
           </h3>
 
-          <div className='bg-slate-50 px-4 py-2 rounded-md bg-green overflow-y-auto max-h-[320px]'>
-            <table className='w-full '>
+          <div className='bg-slate-50 px-4 py-2 rounded-md bg-green overflow-y-auto overflow-x-auto max-h-[320px]'>
+            <table className='md:w-full w-auto'>
               <thead>
                 <tr>
                   <th>Id</th>

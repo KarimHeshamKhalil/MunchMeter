@@ -29,7 +29,7 @@ export default function ContactUs() {
   }
 
   return (
-    <div className='pl-[90px] pr-6 checkPoint1:pl-[160px]'>
+    <div className='px-2 sm:pl-[90px] sm:pr-6 checkPoint1:pl-[160px]'>
       <Sidebar />
       <form className='flex flex-col max-w-[600px] text-green1 px-5 py-5 rounded-md shadow-md mx-auto mt-16 bg-slate-100' ref={form} onSubmit={handleSubmit(submit)}> 
         <h3 className='text-3xl mb-4 font-medium rubik'>Contact Us</h3>

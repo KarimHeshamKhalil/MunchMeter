@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { GoPlus } from "react-icons/go";
-import { FaFire, FaCircleExclamation } from "react-icons/fa6";
+import { FaFire, FaBookBookmark } from "react-icons/fa6";
 import { GiAppleSeeds } from "react-icons/gi";
-import { IoIosWater, IoMdHome, IoMdMail } from "react-icons/io";
-import { FaBookBookmark } from "react-icons/fa6";
+import { IoMdHome, IoMdMail, IoMdClose } from "react-icons/io";
 import ConsumeForm from './ConsumeForm';
 import BurnForm from './BurnForm'
 import { IoCloseOutline } from 'react-icons/io5';
+import { RxHamburgerMenu } from "react-icons/rx";
 
 export default function Sidebar({ setFoodLog, setActivityLog }) {
   const [isShown, setIsShown] = useState(false)
   const [isConsume, setIsConsume] = useState(false)
   const [isBurnCalories, setIsBurnCalories] = useState(false)
+  const [isSidebarShown, setIsSidebarShown] = useState(false)
 
   const toggleModal = () => {
     setIsShown(prevVal => !prevVal)
@@ -76,7 +77,7 @@ export default function Sidebar({ setFoodLog, setActivityLog }) {
           
       </div>
 
-      <div className='fixed left-0 top-0 bottom-0 h-[100vh] w-20 bg-green1 block checkPoint1:hidden'>
+      <div className='fixed left-0 top-0 bottom-0 h-[100vh] w-20 bg-green1 hidden sm:block checkPoint1:hidden'>
         <div className='px-4 pt-4 mb-6'>
           {(setFoodLog && setActivityLog) ? (
             <button onClick={() => setIsShown(true)} className='text-green2 bg-slate-100 hover:text-white hover:bg-green2 hover:shadow-md transition-all duration-100 w-full py-2 text-lg flex items-center justify-center gap-1 rounded-md'>
@@ -130,6 +131,67 @@ export default function Sidebar({ setFoodLog, setActivityLog }) {
         </ul>
           
       </div>
+
+      <button onClick={() => setIsSidebarShown(prevVal => !prevVal)} className='sm:hidden fixed top-2 left-2 z-[1000] w-[40px] h-[40px] flex items-center justify-center text-white text-xl bg-green2 hover:text-green2 hover:bg-white transition-all duration-100 shadow-md rounded-full'>
+        <RxHamburgerMenu />
+      </button>
+
+      {
+        isSidebarShown && (
+          <>
+            <div className='fixed left-0 top-0 z-[1000] w-full bottom-0 bg-green1 block sm:hidden'>
+              <div className='px-5 pt-4 mb-6'>
+                <div className='flex items-end justify-end mb-4'>
+                  <button onClick={() => setIsSidebarShown(prevVal => !prevVal)} className='w-[40px] h-[40px] flex items-center justify-center text-green2 text-xl bg-white hover:text-white hover:bg-green2 transition-all duration-100 shadow-md rounded-full'>
+                    <IoMdClose />
+                  </button>
+                </div>
+                {(setFoodLog && setActivityLog) ? (
+                  <button onClick={() => setIsShown(true)} className='text-green2 bg-white hover:text-white hover:bg-green2 hover:shadow-md transition-all duration-100 w-full py-3 text-lg flex items-center justify-center gap-1 rounded-md'>
+                    <span className='text-2xl'><GoPlus /></span> New
+                  </button>
+                ): (
+                  <a href='/' className='text-white bg-green2  w-full py-2 text-lg flex items-center justify-center gap-1 rounded-md'>
+                    MunchMeter
+                  </a>
+                )}
+              </div>
+
+              <ul className='text-white'>
+                <li>
+                  <a href={'/home/calories'}>
+                    <button className='group w-full relative px-5 py-4 border-y border-green2 hover:bg-green2 text-green-100 overflow-hidden text-left transition-all duration-300 ease-in-out'>
+                      <span className='transition-all duration-300 ease-in-out flex items-center justify-center gap-2'>Calories <FaFire /></span>
+                    </button>
+                  </a>
+                </li>
+                <li>
+                  <a href={'/home/micronutrients'}>
+                    <button className='group w-full relative px-5 py-4 border-b border-green2 hover:bg-green2 text-green-100 overflow-hidden text-left transition-all duration-300 ease-in-out'>
+                      <span className='transition-all duration-300 ease-in-out flex items-center justify-center gap-2'>Micronutrients <GiAppleSeeds /></span>
+                    </button>
+                  </a>
+                </li>
+                <li>
+                  <a href={'/home/recipes'}>
+                    <button className='group w-full relative px-5 py-4 border-b border-green2 hover:bg-green2 text-green-100 overflow-hidden text-left transition-all duration-300 ease-in-out'>
+                      <span className='transition-all duration-300 ease-in-out flex items-center justify-center gap-2'>Recipes <FaBookBookmark /></span>
+                    </button>
+                  </a>
+                </li>
+                <li>
+                  <a href={'/home/contactus'}>
+                    <button className='group w-full relative px-5 py-4 border-b border-green2 hover:bg-green2 text-green-100 overflow-hidden text-left transition-all duration-300 ease-in-out'>
+                      <span className='transition-all duration-300 ease-in-out flex items-center justify-center gap-2'>Contact Us <IoMdMail /></span>
+                    </button>
+                  </a>
+                </li>
+              </ul>
+                
+            </div>
+          </>
+        )
+      }
 
       {
         isShown && !isBurnCalories && !isConsume && (

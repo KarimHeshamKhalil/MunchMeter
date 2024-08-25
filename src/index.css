@@ -9,6 +9,10 @@
   font-family: "Roboto", sans-serif;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .rubik {
   font-family: "Rubik", sans-serif;
 }
@@ -17,7 +21,7 @@ td, th {
   border-bottom: 1px solid #e0e8e2;
   border-right: 1px solid #e0e8e2;
   text-align: left;
-  padding: 8px;
+  padding: 8px 14px;
 }
 
 th {

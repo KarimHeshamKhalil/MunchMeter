@@ -51,7 +51,7 @@ export default function Nutrients() {
   
   return (
     <>
-      <div className='checkPoint1:pl-[192px] pl-[80px]'>
+      <div className='checkPoint1:pl-[192px] sm:pl-[80px]'>
         <Sidebar />
 
         <div className=' mt-12 text-green1 text-2xl rounded-lg w-full flex flex-col items-center justify-center'>
