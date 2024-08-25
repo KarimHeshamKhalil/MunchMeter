@@ -24,10 +24,6 @@ export default function Recipes({ isPage, setRecipe }) {
     
   }
 
-  const handleSearch = () => {
-    getData()
-  }
-
   const toggleModal = () => {
     setIsRecipeShow(prevVal => !prevVal)
   }
@@ -66,7 +62,7 @@ export default function Recipes({ isPage, setRecipe }) {
       <div className='max-w-[1000px] mx-auto mt-16 relative'>
         <input className='bg-white1 w-full px-6 py-2 rounded-full text-green1 outline-none focus:shadow-shadow1 shadow-sm' type="text" placeholder='search recipe by name ex:burger' value={recipeName} onChange={(e) => setRecipeName(e.currentTarget.value)} />
 
-        <button onClick={handleSearch} className='px-3 py-2 bg-green2 rounded-full absolute right-2 top-1 text-white hover:shadow-shadow1 group'>
+        <button onClick={getData} className='px-3 py-2 bg-green2 rounded-full absolute right-2 top-1 text-white hover:shadow-shadow1 group'>
           <IoIosArrowForward className='group-hover:rotate-90 transition-all duration-200' />
         </button>
 
@@ -78,7 +74,7 @@ export default function Recipes({ isPage, setRecipe }) {
           ))}
           {
             recipes && !recipes.meals && (
-              <p>Oops, Could Not Find Your Meal</p>
+              <p className='text-green2'>Oops, Could Not Find Your Meal</p>
             )
           }
         </div>
@@ -87,7 +83,7 @@ export default function Recipes({ isPage, setRecipe }) {
       {isRecipeShown && (
         <div className='fixed inset-0 w-[1000vh] height-[100vh] z-50'>
           <div onClick={toggleModal} className='fixed inset-0 w-[1000vh] height-[100vh] bg-modal z-100'></div>
-          <div className='modal-content w-[800px] shadow-innerborder overflow-hidden border border-green2 bg-slate-100 rounded-lg px-6 py-6 flex flex-row-reverse items-center gap-3'>
+          <div className='modal-content w-[80%] xs:w-[700px] shadow-innerborder overflow-hidden border border-green2 bg-slate-100 rounded-lg px-6 py-6 flex flex-col checkPoint2:flex-row-reverse justify-between items-center gap-3'>
             <button onClick={toggleModal} className='absolute -top-1 -right-1 px-2 pr-3 py-2 pt-3 bg-green2 borer border-green2 text-white rounded-md hover:text-green2 hover:bg-slate-50 transition-all duration-100 shadow-shadow1'>
               <IoCloseOutline />
             </button>
@@ -139,12 +135,13 @@ export default function Recipes({ isPage, setRecipe }) {
       {
         (isRecipeShown && isShowMore) && (
           <div className='fixed inset-0 w-[1000vh] height-[100vh] z-50'>
-          <div onClick={() => setIsShowMore(false)} className='fixed inset-0 w-[1000vh] height-[100vh] bg-modal z-100'></div>
-            <div className='modal-content w-[800px] shadow-innerborder overflow-hidden border border-green2 bg-slate-100 rounded-lg px-6 py-6 flex items-center gap-3'>
+            <div onClick={() => setIsShowMore(false)} className='fixed inset-0 w-[1000vh] height-[100vh] bg-modal z-100'></div>
+            <div className='modal-content w-[80%] xs:w-[700px] max-h-[500px] shadow-innerborder overflow-x-hidden overflow-y-auto border border-green2 bg-slate-100 rounded-lg px-6 py-6 gap-3'>
               <button onClick={() => setIsShowMore(false)} className='absolute -top-1 -right-1 px-2 pr-3 py-2 pt-3 bg-green2 borer border-green2 text-white rounded-md hover:text-green2 hover:bg-slate-50 transition-all duration-100 shadow-shadow1'>
                 <IoCloseOutline />
               </button>
 
+              <h2 className='text-xl font-medium text-green2 mb-2'>Instructions:</h2>
               <p className='text-green1 text-lg'>
                 {selectedRecipe.strInstructions}
               </p>
