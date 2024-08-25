@@ -87,9 +87,9 @@ export default function page() {
             <span>Food Log</span>
             <FaBookOpen />
           </h3>
-          <div className='bg-slate-50 px-4 py-2 rounded-md overflow-y-auto max-h-[320px] w-[600px] md:w-full'>
+          <div className='bg-slate-50 px-4 py-2 rounded-md overflow-y-auto max-h-[320px] w-[100%] md:w-full'>
             <div className='overflow-x-auto'> {/* Wrap the table in another div */}
-              <table className='md:min-w-full min-w-[300px] '>
+              <table className='min-w-full '>
                 <thead>
                   <tr>
                     <th>Id</th>
@@ -128,9 +128,9 @@ export default function page() {
             <FaBookOpen />
           </h3>
 
-          <div className='bg-slate-50 px-4 py-2 rounded-md overflow-y-auto max-h-[320px] w-[600px] md:w-full'>
+          <div className='bg-slate-50 px-4 py-2 rounded-md overflow-y-auto max-h-[320px] w-[100%] md:w-full'>
             <div className='overflow-x-auto'> {/* Wrap the table in another div */}
-              <table className='md:min-w-full min-w-[300px] '>
+              <table className='min-w-full '>
                 <thead>
                   <tr>
                     <th>Id</th>
