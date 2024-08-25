@@ -89,7 +89,7 @@ export default function page() {
           </h3>
           <div className='bg-slate-50 px-4 py-2 rounded-md overflow-y-auto max-h-[320px] w-[600px] md:w-full'>
             <div className='overflow-x-auto'> {/* Wrap the table in another div */}
-              <table className='md:min-w-full min-w-[600px] '>
+              <table className='md:min-w-full min-w-[300px] '>
                 <thead>
                   <tr>
                     <th>Id</th>
@@ -130,7 +130,7 @@ export default function page() {
 
           <div className='bg-slate-50 px-4 py-2 rounded-md overflow-y-auto max-h-[320px] w-[600px] md:w-full'>
             <div className='overflow-x-auto'> {/* Wrap the table in another div */}
-              <table className='md:min-w-full min-w-[600px] '>
+              <table className='md:min-w-full min-w-[300px] '>
                 <thead>
                   <tr>
                     <th>Id</th>
