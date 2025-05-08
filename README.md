@@ -1,8 +1,27 @@
-# React + Vite
+# 🥗 MunchMeter - Smart Nutrition Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**MunchMeter** is a modern, user-friendly web application that helps you stay on top of your nutrition. Get detailed **nutrition facts** and explore healthy **meal recipes** with just a few clicks.
 
-Currently, two official plugins are available:
+## 🌟 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔍 **Nutrition Facts Lookup**  
+  Search any food or meal and view detailed nutrition info including:  
+  - Calories  
+  - Macronutrients (Carbs, Protein, Fats)  
+  - Micronutrients (Vitamins, Minerals)
+
+- 🍽️ **Smart Recipe Generator**  
+  Discover meal ideas with full recipes and nutrition breakdown  
+  - Filter by dietary preferences (vegan, keto, gluten-free, etc.)  
+  - Easy-to-follow instructions  
+
+- 🧑‍🎨 **Modern UI**  
+  Sleek, responsive design for both mobile and desktop  
+  - Minimalist and intuitive layout  
+
+## ⚙️ Tech Stack
+
+- **Frontend**: React
+- **Styling**: Tailwind CSS  
+- **Language**: Javascript  
+- **APIs**: Nutrition and Recipe APIs (e.g. Edamam, Spoonacular, USDA)  
